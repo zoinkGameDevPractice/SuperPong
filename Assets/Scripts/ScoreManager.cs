@@ -42,15 +42,15 @@ public class ScoreManager : MonoBehaviour
 
     public void AddPoint(int index)
     {
-        if (index == 0)
-        {
-            P2 += 1;
-            scoreP1.text = P1.ToString();
-            ResetBall();
-        }
         if (index == 1)
         {
             P1 += 1;
+            scoreP1.text = P1.ToString();
+            ResetBall();
+        }
+        if (index == 0)
+        {
+            P2 += 1;
             scoreP2.text = P2.ToString();
             ResetBall();
         }
