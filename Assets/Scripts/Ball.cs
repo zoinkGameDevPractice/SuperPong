@@ -16,7 +16,7 @@ public class Ball : MonoBehaviour
         Launch();
     }
 
-    void Launch()
+    public void Launch()
     {
         float x = Random.Range(1f, 2f);
         float y = Random.Range(1f, 2f);
