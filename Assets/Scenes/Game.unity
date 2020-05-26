@@ -746,7 +746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
-  boost: 2.5
+  boost: 3.5
 --- !u!1 &1087789274
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,7 +1351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
-  boost: 2.5
+  boost: 3.5
 --- !u!1 &2068718369
 GameObject:
   m_ObjectHideFlags: 0

@@ -43,7 +43,7 @@ public class Movement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Collider2D collider = collision.collider;
-        if (collider.CompareTag("Ball"))
+        if (collider.CompareTag("Ball") && ball.needsBoost)
             ball.ApplyBoost(new Vector2(boost, 0));
     }
 }

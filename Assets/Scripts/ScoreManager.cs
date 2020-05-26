@@ -45,29 +45,37 @@ public class ScoreManager : MonoBehaviour
         if (index == 1)
         {
             P1 += 1;
+            if (P1 >= pointsToWin)
+                Win(1);
             scoreP1.text = P1.ToString();
-            ResetBall();
+            StartCoroutine(ResetBall());
         }
         if (index == 0)
         {
             P2 += 1;
+            if (P2 >= pointsToWin)
+                Win(0);
             scoreP2.text = P2.ToString();
-            ResetBall();
+            StartCoroutine(ResetBall());
         }
         else
             return;
     }
 
-    void ResetBall()
+    IEnumerator ResetBall()
     {
         ballRB.velocity = new Vector2(0, 0);
+        yield return new WaitForSeconds(0.4f);
         ballRB.transform.position = new Vector2(0, 0);
-        StartCoroutine(Launch());
-    }
-
-    IEnumerator Launch()
-    {
         yield return new WaitForSeconds(resetDelay);
         ball.Launch();
+    }
+
+    void Win(int index)
+    {
+        if (index == 1)
+            print("Player 1 wins!");
+        if (index == 0)
+            print("Player 2 wins!");
     }
 }

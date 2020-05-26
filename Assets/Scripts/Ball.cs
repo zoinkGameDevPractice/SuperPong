@@ -18,15 +18,12 @@ public class Ball : MonoBehaviour
 
     public void Launch()
     {
-        float x = Random.Range(1f, 2f);
-        float y = Random.Range(1f, 2f);
-
-        rb.velocity = new Vector2(x, y) * speed;
+        rb.velocity = GetVelocity() * speed;
     }
 
     private void Update()
     {
-        if (rb.velocity.x < 2f)
+        if (rb.velocity.x < 3.5f)
             needsBoost = true;
         else
             needsBoost = false;
@@ -35,5 +32,18 @@ public class Ball : MonoBehaviour
     public void ApplyBoost(Vector2 boost)
     {
         rb.velocity += boost;
+    }
+
+    Vector2 GetVelocity()
+    {
+        int x = Random.Range(1, 3);
+        int y = Random.Range(1, 3);
+
+        if (x == 2)
+            x = -1;
+        if (y == 2)
+            y = -1;
+
+        return new Vector2(x, y);
     }
 }
