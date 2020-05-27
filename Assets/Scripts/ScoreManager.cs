@@ -32,12 +32,17 @@ public class ScoreManager : MonoBehaviour
 
     public float resetDelay = 1f;
 
+    public GameObject winState;
+    public GameObject winTextObject;
+    private TextMeshProUGUI winText;
+
     private void Start()
     {
         scoreP1 = scoreP1Object.GetComponent<TextMeshProUGUI>();
         scoreP2 = scoreP2Object.GetComponent<TextMeshProUGUI>();
         ball = ballObject.GetComponent<Ball>();
         ballRB = ballObject.GetComponent<Rigidbody2D>();
+        winText = winTextObject.GetComponent<TextMeshProUGUI>();
     }
 
     public void AddPoint(int index)
@@ -73,9 +78,12 @@ public class ScoreManager : MonoBehaviour
 
     void Win(int index)
     {
+        winState.SetActive(true);
+        Time.timeScale = 0f;
+
         if (index == 1)
-            print("Player 1 wins!");
+            winText.text = "Player 1 Wins!";
         if (index == 0)
-            print("Player 2 wins!");
+            winText.text = "Player 2 Wins!";
     }
 }
