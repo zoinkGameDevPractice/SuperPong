@@ -17,7 +17,4 @@ public class Data : MonoBehaviour
     public int pointsToWin = 10;
     public float playerSpeed = 6f;
     public float ballSpeed = 5f;
-
-    public float musicVolume = 0f;
-    public float soundVolume = 0f;
 }
