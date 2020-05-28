@@ -21,6 +21,8 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         if (tag == "Player1")
             isPlayerOne = true;
+        if(Data.instance != null)
+            speed = Data.instance.playerSpeed;
     }
 
     // Update is called once per frame

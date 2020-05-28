@@ -43,6 +43,8 @@ public class ScoreManager : MonoBehaviour
         ball = ballObject.GetComponent<Ball>();
         ballRB = ballObject.GetComponent<Rigidbody2D>();
         winText = winTextObject.GetComponent<TextMeshProUGUI>();
+        if(Data.instance != null)
+            pointsToWin = Data.instance.pointsToWin;
     }
 
     public void AddPoint(int index)

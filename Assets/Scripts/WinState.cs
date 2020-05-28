@@ -9,4 +9,9 @@ public class WinState : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void QuitToTitle()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

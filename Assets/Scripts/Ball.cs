@@ -12,6 +12,8 @@ public class Ball : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(Data.instance != null)
+            speed = Data.instance.ballSpeed;
         rb = GetComponent<Rigidbody2D>();
         Launch();
     }

@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class Data : MonoBehaviour
 {
-    public Data instance;
+    public static Data instance;
+
     private void Awake()
     {
-        if (instance == null)
-            instance = this;
-        else
+        if (instance != null)
             Destroy(gameObject);
+        instance = this;
         DontDestroyOnLoad(gameObject);
     }
 
-    public int pointsToWin;
-    public int playerSpeed;
-    public int ballSpeed;
+    public int pointsToWin = 10;
+    public float playerSpeed = 6f;
+    public float ballSpeed = 5f;
 
-    public float musicVolume;
-    public float soundVolume;
+    public float musicVolume = 0f;
+    public float soundVolume = 0f;
 }
