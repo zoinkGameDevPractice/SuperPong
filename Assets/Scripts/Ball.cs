@@ -9,6 +9,8 @@ public class Ball : MonoBehaviour
     [HideInInspector]
     public bool needsBoost = false;
 
+    AudioSource source;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,5 +49,23 @@ public class Ball : MonoBehaviour
             y = -1;
 
         return new Vector2(x, y);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<AudioSource>())
+        {
+            source = collision.gameObject.GetComponent<AudioSource>();
+            source.Play();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<AudioSource>())
+        {
+            source = collision.gameObject.GetComponent<AudioSource>();
+            source.Play();
+        }
     }
 }

@@ -36,6 +36,8 @@ public class ScoreManager : MonoBehaviour
     public GameObject winTextObject;
     private TextMeshProUGUI winText;
 
+    AudioSource source;
+
     private void Start()
     {
         scoreP1 = scoreP1Object.GetComponent<TextMeshProUGUI>();
@@ -43,6 +45,7 @@ public class ScoreManager : MonoBehaviour
         ball = ballObject.GetComponent<Ball>();
         ballRB = ballObject.GetComponent<Rigidbody2D>();
         winText = winTextObject.GetComponent<TextMeshProUGUI>();
+        source = GetComponent<AudioSource>();
         if(Data.instance != null)
             pointsToWin = Data.instance.pointsToWin;
     }
@@ -81,6 +84,7 @@ public class ScoreManager : MonoBehaviour
     void Win(int index)
     {
         winState.SetActive(true);
+        source.Play();
         Time.timeScale = 0f;
 
         if (index == 1)
