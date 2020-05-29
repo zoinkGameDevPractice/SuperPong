@@ -14,6 +14,8 @@ public class Ball : MonoBehaviour
     AudioSource source;
     public ParticleSystem ps;
 
+    public Animator cam;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +61,7 @@ public class Ball : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<AudioSource>())
         {
+            cam.SetTrigger("Shake");
             ps.Play();
             source = collision.gameObject.GetComponent<AudioSource>();
             source.Play();
@@ -69,6 +72,7 @@ public class Ball : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<AudioSource>())
         {
+            cam.SetTrigger("Shake");
             source = collision.gameObject.GetComponent<AudioSource>();
             source.Play();
         }
