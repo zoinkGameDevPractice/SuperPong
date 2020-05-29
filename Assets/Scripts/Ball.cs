@@ -12,6 +12,7 @@ public class Ball : MonoBehaviour
     public float launchDelay = 2f;
 
     AudioSource source;
+    public ParticleSystem ps;
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +59,7 @@ public class Ball : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<AudioSource>())
         {
+            ps.Play();
             source = collision.gameObject.GetComponent<AudioSource>();
             source.Play();
         }
