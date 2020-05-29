@@ -9,6 +9,8 @@ public class Ball : MonoBehaviour
     [HideInInspector]
     public bool needsBoost = false;
 
+    public float launchDelay = 2f;
+
     AudioSource source;
 
     // Start is called before the first frame update
@@ -17,11 +19,12 @@ public class Ball : MonoBehaviour
         if(Data.instance != null)
             speed = Data.instance.ballSpeed;
         rb = GetComponent<Rigidbody2D>();
-        Launch();
+        StartCoroutine(Launch());
     }
 
-    public void Launch()
+    public IEnumerator Launch()
     {
+        yield return new WaitForSeconds(launchDelay);
         rb.velocity = GetVelocity() * speed;
     }
 

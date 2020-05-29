@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
@@ -17,6 +16,8 @@ public class PlayMenu : MonoBehaviour
     public Slider playerSpeedSlider;
     public Slider ballSpeedSlider;
 
+    public Animator anim;
+
     private void Start()
     {
         data = Data.instance;
@@ -27,7 +28,7 @@ public class PlayMenu : MonoBehaviour
         data.pointsToWin = (int)pointSlider.value;
         data.playerSpeed = playerSpeedSlider.value;
         data.ballSpeed = ballSpeedSlider.value;
-        SceneManager.LoadScene("Game");
+        anim.SetTrigger("End");
     }
 
     public void SetPointsToWin(float points)

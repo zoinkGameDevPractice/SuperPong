@@ -30,8 +30,6 @@ public class ScoreManager : MonoBehaviour
     private Ball ball;
     private Rigidbody2D ballRB;
 
-    public float resetDelay = 1f;
-
     public GameObject winState;
     public GameObject winTextObject;
     private TextMeshProUGUI winText;
@@ -77,8 +75,7 @@ public class ScoreManager : MonoBehaviour
         ballRB.velocity = new Vector2(0, 0);
         yield return new WaitForSeconds(0.4f);
         ballRB.transform.position = new Vector2(0, 0);
-        yield return new WaitForSeconds(resetDelay);
-        ball.Launch();
+        StartCoroutine(ball.Launch());
     }
 
     void Win(int index)
