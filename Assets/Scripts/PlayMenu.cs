@@ -1,12 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayMenu : MonoBehaviour
 {
     Data data;
+
+    public TextMeshProUGUI pointText;
+    public TextMeshProUGUI playerSpeedText;
+    public TextMeshProUGUI ballSpeedText;
+
+    public Slider pointSlider;
+    public Slider playerSpeedSlider;
+    public Slider ballSpeedSlider;
 
     private void Start()
     {
@@ -15,30 +24,24 @@ public class PlayMenu : MonoBehaviour
 
     public void Play()
     {
+        data.pointsToWin = (int)pointSlider.value;
+        data.playerSpeed = playerSpeedSlider.value;
+        data.ballSpeed = ballSpeedSlider.value;
         SceneManager.LoadScene("Game");
     }
 
-    public void SetPointsToWin(string sPoints)
+    public void SetPointsToWin(float points)
     {
-        int points;
-        bool isParsable = Int32.TryParse(sPoints, out points);
-        if (isParsable)
-            data.pointsToWin = points;
+        pointText.text = "Points To Win: " + points;
     }
 
-    public void SetPlayerSpeed(string sSpeed)
+    public void SetPlayerSpeed(float speed)
     {
-        float speed;
-        bool isParsable = float.TryParse(sSpeed, out speed);
-        if (isParsable)
-            data.playerSpeed = speed;
+        playerSpeedText.text = "Player Speed: " + speed;
     }
 
-    public void SetBallSpeed(string sSpeed)
+    public void SetBallSpeed(float speed)
     {
-        float speed;
-        bool isParsable = float.TryParse(sSpeed, out speed);
-        if (isParsable)
-            data.ballSpeed = speed;
+        ballSpeedText.text = "Ball Speed: " + speed;
     }
 }

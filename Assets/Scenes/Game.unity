@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c63714d8f4b8024b9b4b17beb7bff64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsToWin: 2
+  pointsToWin: 10
   P1: 0
   P2: 0
   scoreP1Object: {fileID: 56026233}
